@@ -107,6 +107,7 @@ input[type=checkbox].button-off:checked + label.button-label {
     transition: opacity 3s;
 }
 
+
 .people-big-layout {
     display: grid;
     align-items: center;
