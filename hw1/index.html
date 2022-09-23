@@ -8,13 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 
-        <link rel="stylesheet" href="styles/general.css">
-        <link rel="stylesheet" href="styles/small-people.css">
-        <link rel="stylesheet" href="styles/big-people.css">
-        <link rel="stylesheet" href="styles/text.css">
-        <link rel="stylesheet" href="styles/taskbar.css">
-
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+        <link rel="stylesheet" href="styles.css">
 
         <style>
 
@@ -40,18 +34,27 @@
                         <img class="big-profile-image" src="images/person-icon.png">
                         <div class="people-big-hover">
                             <div class="hover-big-button">
-                                <input type="checkbox" id="button1" class="button-off"/>
-                                    <label for="button1" class="button-label">
-                                        <img class="hover-button-icon" src="images/unpin-white.png">
-                                    </label>
-                                <input type="checkbox" id="button2" class="button-off"/>
-                                    <label for="button2" class="button-label">
-                                        <img class="hover-button-icon" src="images/grid-white.png">
-                                    </label>
-                                <input type="checkbox" id="button3" class="button-off"/>
-                                    <label for="button3" class="button-label">
-                                        <img class="hover-button-icon" src="images/minimize-white.png">
-                                    </label>
+                                <div class="label-button-1">
+                                    <input type="checkbox" id="button1" class="button-off"/>
+                                        <label for="button1" class="button-label">
+                                            <img class="hover-button-icon" src="images/unpin-white.png">
+                                        </label>
+                                    <div class="unpin-desc"><p class=icon-desc>pin yourself to the main screen</p></div>
+                                </div>
+                                <div class="label-button-2">
+                                    <input type="checkbox" id="button2" class="button-off"/>
+                                        <label for="button2" class="button-label">
+                                            <img class="hover-button-icon" src="images/grid-white.png">
+                                        </label>
+                                    <div class="tile-desc"><p class=icon-desc>Show in a tile</p></div>
+                                </div>
+                                <div class="label-button-3">
+                                    <input type="checkbox" id="button3" class="button-off"/>
+                                        <label for="button3" class="button-label">
+                                            <img class="hover-button-icon" src="images/minimize-white.png">
+                                        </label>
+                                    <div class="minimize-desc"><p class=icon-desc>Minimize</p></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -104,16 +107,16 @@
                             <img class="profile-image" src="images/person-icon.png">
                             <div class="people-small-hover">
                                 <div class="hover-small-button">
-                                    <input type="checkbox" id="button4" class="button-off"/>
-                                        <label for="button4" class="button-label">
+                                    <input type="checkbox" id="button7" class="button-off"/>
+                                        <label for="button7" class="button-label">
                                             <img class="hover-button-icon" src="images/unpin-white.png">
                                         </label>
-                                    <input type="checkbox" id="button5" class="button-off"/>
-                                        <label for="button5" class="button-label">
+                                    <input type="checkbox" id="button8" class="button-off"/>
+                                        <label for="button8" class="button-label">
                                             <img class="hover-button-icon" src="images/grid-white.png">
                                         </label>
-                                    <input type="checkbox" id="button6" class="button-off"/>
-                                        <label for="button6" class="button-label">
+                                    <input type="checkbox" id="button9" class="button-off"/>
+                                        <label for="button9" class="button-label">
                                             <img class="hover-button-icon" src="images/minimize-white.png">
                                         </label>
                                 </div>
@@ -134,16 +137,16 @@
                             <img class="profile-image" src="images/person-icon.png">
                             <div class="people-small-hover">
                                 <div class="hover-small-button">
-                                    <input type="checkbox" id="button4" class="button-off"/>
-                                        <label for="button4" class="button-label">
+                                    <input type="checkbox" id="button10" class="button-off"/>
+                                        <label for="button10" class="button-label">
                                             <img class="hover-button-icon" src="images/unpin-white.png">
                                         </label>
-                                    <input type="checkbox" id="button5" class="button-off"/>
-                                        <label for="button5" class="button-label">
+                                    <input type="checkbox" id="button11" class="button-off"/>
+                                        <label for="button11" class="button-label">
                                             <img class="hover-button-icon" src="images/grid-white.png">
                                         </label>
-                                    <input type="checkbox" id="button6" class="button-off"/>
-                                        <label for="button6" class="button-label">
+                                    <input type="checkbox" id="button12" class="button-off"/>
+                                        <label for="button12" class="button-label">
                                             <img class="hover-button-icon" src="images/minimize-white.png">
                                         </label>
                                 </div>
@@ -164,16 +167,16 @@
                             <img class="profile-image" src="images/person-icon.png">
                             <div class="people-small-hover">
                                 <div class="hover-small-button">
-                                    <input type="checkbox" id="button4" class="button-off"/>
-                                        <label for="button4" class="button-label">
+                                    <input type="checkbox" id="button13" class="button-off"/>
+                                        <label for="button13" class="button-label">
                                             <img class="hover-button-icon" src="images/unpin-white.png">
                                         </label>
-                                    <input type="checkbox" id="button5" class="button-off"/>
-                                        <label for="button5" class="button-label">
+                                    <input type="checkbox" id="button14" class="button-off"/>
+                                        <label for="button14" class="button-label">
                                             <img class="hover-button-icon" src="images/grid-white.png">
                                         </label>
-                                    <input type="checkbox" id="button6" class="button-off"/>
-                                        <label for="button6" class="button-label">
+                                    <input type="checkbox" id="button15" class="button-off"/>
+                                        <label for="button15" class="button-label">
                                             <img class="hover-button-icon" src="images/minimize-white.png">
                                         </label>
                                 </div>
@@ -194,16 +197,16 @@
                             <img class="profile-image" src="images/person-icon.png">
                             <div class="people-small-hover">
                                 <div class="hover-small-button">
-                                    <input type="checkbox" id="button4" class="button-off"/>
-                                        <label for="button4" class="button-label">
+                                    <input type="checkbox" id="button16" class="button-off"/>
+                                        <label for="button16" class="button-label">
                                             <img class="hover-button-icon" src="images/unpin-white.png">
                                         </label>
-                                    <input type="checkbox" id="button5" class="button-off"/>
-                                        <label for="button5" class="button-label">
+                                    <input type="checkbox" id="button17" class="button-off"/>
+                                        <label for="button17" class="button-label">
                                             <img class="hover-button-icon" src="images/grid-white.png">
                                         </label>
-                                    <input type="checkbox" id="button6" class="button-off"/>
-                                        <label for="button6" class="button-label">
+                                    <input type="checkbox" id="button18" class="button-off"/>
+                                        <label for="button18" class="button-label">
                                             <img class="hover-button-icon" src="images/minimize-white.png">
                                         </label>
                                 </div>

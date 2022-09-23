@@ -1,0 +1,355 @@
+p {
+    font-family: Roboto;
+    margin: 0;
+    padding: 0;
+}
+
+.mute-button-layout {
+    display: flex;
+    justify-content: right;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.mute-button {
+    background-color: rgb(52,55,58);
+    padding: 5px;
+    padding-bottom: 2px;
+    border-radius: 20px;
+}
+
+.mute-image {
+    width: 18px;
+    height: auto;
+}
+
+.profile-image {
+    width: 25%;
+    height: auto;
+    border-radius: 80px;
+    opacity: 0.6;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.hover-button-icon {
+    width: 70%;
+}
+
+.button-off {
+    display: block;
+    display: none;
+}
+
+label.button-label {
+    opacity: 0.5;
+}
+
+input[type=checkbox].button-off:checked + label.button-label {
+    opacity : 1;
+}
+
+.unpin-desc {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    align-items: center;
+    padding: 6px;
+    top: 120%;
+    opacity: 0;
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.tile-desc {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    padding: 6px;
+    top: 120%;
+    opacity: 0;
+    z-index: 2;
+    border-radius: 4px;
+}
+
+.minimize-desc {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    align-items: center;
+    padding: 6px;
+    top: 120%;
+    opacity: 0;
+    z-index: 3;
+    border-radius: 4px;
+}
+
+.icon-desc {
+    font-size: 8px;
+    color: white;
+}
+
+.label-button-1:hover .unpin-desc{
+    opacity : 1;
+    transition: opacity 3s;
+}
+
+.label-button-2:hover .tile-desc{
+    opacity : 1;
+    transition: opacity 3s;
+}
+
+.label-button-3:hover .minimize-desc{
+    opacity : 1;
+    transition: opacity 3s;
+}
+
+.people-big-layout {
+    display: grid;
+    align-items: center;
+}
+
+.people-big {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(32, 33, 36);
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+.people-big-profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 200px;
+    padding-bottom: 220px;
+}
+
+.big-profile-image {
+    width: 13%;
+    height: auto;
+    border-radius: 80px;
+    opacity: 0.6;
+}
+
+.people-big-hover {
+    /* background-color: blue; */
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.people-big:hover .people-big-hover {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.hover-big-button:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.hover-big-button {
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(56, 55, 55);
+
+    width:15%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 30px;
+}
+
+.big-profile-name {
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    padding-bottom: 10px;
+}
+
+.pin-name-icon {
+    width: 22px;
+}
+
+.big-name {
+    padding-left: 10px;
+    color: white;
+    font-size: 12px;
+}
+
+.people-small-layout {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.people-small-layout > * {
+    flex: 1 1 150px;
+    margin: 5px;
+}
+
+.people-small {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(60, 64, 67);
+    opacity: 0.7;
+    border-radius: 10px;
+}
+
+.people-small-profile {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    /* background-color: red; */
+}
+
+.people-small-hover {
+    /* background-color: blue; */
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.people-small:hover .people-small-hover {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.hover-small-button:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+
+.hover-small-button {
+    opacity: 0.6;
+    display: flex;
+    text-align: center;
+    background-color: rgb(56, 55, 55);
+
+    width: 20%;
+    min-width: 60px;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 3%;
+    border-radius: 30px;
+}
+
+.profile-name {
+    display: flex;
+    justify-content: left;
+
+    font-size: 11px;
+    color: white;
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+
+.taskbar {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70px;
+    bottom: 0;
+}
+
+.left-section {
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.meeting-details {
+    font-size: 13px;
+    color: white;
+    font-weight: 500;
+}
+
+.middle-section {
+    width: 300px;
+    display: flex;
+    max-width: 500px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.mic-off-icon {
+    max-height: 100%;
+}
+
+.middle-section-icon {
+    /* max-height: 100%; */
+    height: 20px;
+}
+
+.icon-layout {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    background-color: rgb(60, 64, 67);
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.end-call-layout {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    background-color: rgb(255, 59, 48);
+    padding: 10px;
+    padding-right: 13px;
+    padding-left: 13px;
+    border-radius: 50px;
+}
+
+.middle-button-off {
+    display:block;
+    display: none;
+}
+
+label.middle-icon-label {
+    background-color: rgb(60, 64, 67);
+    padding: 10px;
+    padding-bottom: 7px;
+    border-radius: 50px;
+}
+
+input[type=checkbox].middle-button-off:checked + label.middle-icon-label {
+    background-color: rgb(255, 59, 48);
+}
+
+.right-section {
+    /* background-color: blue; */
+    width: 200px;
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.right-section-icon {
+    /* max-height: 100%; */
+    height: 18px;
+}
