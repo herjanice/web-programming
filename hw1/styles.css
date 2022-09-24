@@ -55,41 +55,31 @@ input[type=checkbox].button-off:checked + label.button-label {
     opacity : 1;
 }
 
-.unpin-desc {
+.hover-big-button div {
+    position: relative;
+    justify-content: center;
+    display: flex;
+}
+
+.unpin-desc, .tile-desc, .minimize-desc  {
     background-color: rgb(0, 0, 0);
     position: absolute;
-    align-items: center;
     padding: 6px;
-    top: 120%;
     opacity: 0;
     z-index: 1;
     border-radius: 4px;
+    font-size: 8px;
+    color: white;
+    bottom: -25px;
+    pointer-events: none;
+}
+
+.unpin-desc {
+    min-width: 120px;
 }
 
 .tile-desc {
-    background-color: rgb(0, 0, 0);
-    position: absolute;
-    padding: 6px;
-    top: 120%;
-    opacity: 0;
-    z-index: 2;
-    border-radius: 4px;
-}
-
-.minimize-desc {
-    background-color: rgb(0, 0, 0);
-    position: absolute;
-    align-items: center;
-    padding: 6px;
-    top: 120%;
-    opacity: 0;
-    z-index: 3;
-    border-radius: 4px;
-}
-
-.icon-desc {
-    font-size: 8px;
-    color: white;
+    min-width: 55px;
 }
 
 .label-button-1:hover .unpin-desc{
@@ -106,6 +96,8 @@ input[type=checkbox].button-off:checked + label.button-label {
     opacity : 1;
     transition: opacity 3s;
 }
+
+
 
 
 .people-big-layout {
