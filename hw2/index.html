@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Google Meet </title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+
+        <link rel="stylesheet" href="styles.css">
+
+        <style>
+            html,body{
+                height:100%
+            }
+
+            .people-flex {
+                display: grid;
+                grid-template-columns: 2.5fr 1fr;
+                min-height: 90%;
+            }
+        </style>
+    </head>
+
+    <body bgcolor="#202124">
+
+        <div id="flex" class = "people-flex">
+            <div id="big-layout" class="people-big-layout">
+                <div id="me" class="people-big" onMouseOver="people_hover(this)" onMouseOut="people_normal(this)">
+                    <div class="big-mute-button-layout">
+                        <div class="mute-button">
+                            <img class="mute-image" src="images/mic-off-white.png">
+                        </div>
+                    </div>
+                    <div class="people-big-profile">
+                        <img id="image" class="big-profile-image" src="images/person-icon.png">
+                        <div class="people-big-hover">
+                            <div class="hover-big-button">
+                                <div class="label-button-1">
+                                    <input type="checkbox" id="button1" class="button-off" onchange="pin_people(this)" checked />
+                                        <label for="button1" class="button-label">
+                                           <img class="hover-button-icon" src="images/unpin-white.png">
+                                        </label>
+                                    <p class="unpin-desc">pin yourself to the main screen</p>
+                                </div>
+                                <div class="label-button-2">
+                                    <input type="checkbox" id="button2" class="button-off"/>
+                                        <label for="button2" class="button-label">
+                                            <img class="hover-button-icon" src="images/grid-white.png">
+                                        </label>
+                                   <p class="tile-desc">Show in a tile</p>
+                                </div>
+                                <div class="label-button-3">
+                                    <input type="checkbox" id="button3" class="button-off"/>
+                                        <label for="button3" class="button-label">
+                                            <img class="hover-button-icon" src="images/minimize-white.png">
+                                        </label>
+                                    <p class="minimize-desc">Minimize</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-name">
+                        <img class="pin-name-icon" src="images/unpin-white.png">
+                        你
+                    </div>
+                </div>
+            </div>
+
+            <div id="small-layout" class="people-small-layout">
+                <div id="small-people-1" class="people-small" onMouseOver="people_hover(this)" onMouseOut="people_normal(this)">
+                    <div class="mute-button-layout">
+                        <button class="cross-button" onclick="remove_people(this)">
+                            <img class="cross-image" src="images/cross-white.png">
+                        </button>
+                        <div class="mute-button">
+                            <img class="mute-image" src="images/mic-off-white.png">
+                        </div>
+                    </div>
+                    <div class="people-small-profile">
+                        <img class="profile-image" src="images/person-icon.png">
+                        <div class="people-small-hover">
+                            <div class="hover-small-button">
+                                <div class="label-button-1">
+                                    <input type="checkbox" id="button4" class="button-off" onchange="pin_people(this)" />
+                                        <label for="button4" class="button-label">
+                                            <img class="hover-button-icon" src="images/unpin-white.png">
+                                        </label>
+                                    <p class="unpin-desc">pin yourself to the main screen</p>
+                                </div>
+                                <div class="label-button-2">
+                                    <input type="checkbox" id="button5" class="button-off"/>
+                                        <label for="button5" class="button-label">
+                                            <img class="hover-button-icon" src="images/grid-white.png">
+                                        </label>
+                                    <p class="tile-desc">Show in a tile</p>
+                                </div>
+                                <div class="label-button-3">
+                                    <input type="checkbox" id="button6" class="button-off"/>
+                                        <label for="button6" class="button-label">
+                                            <img class="hover-button-icon" src="images/minimize-white.png">
+                                        </label>
+                                    <p class="minimize-desc">Minimize</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-name">
+                        Captain America
+                    </div>
+                </div>
+
+                <div id="small-people-2" class="people-small" onMouseOver="people_hover(this)" onMouseOut="people_normal(this)">
+                    <div class="mute-button-layout">
+                        <button class="cross-button" onclick="remove_people(this)">
+                            <img class="cross-image" src="images/cross-white.png">
+                        </button>
+                        <div class="mute-button">
+                            <img class="mute-image" src="images/mic-off-white.png">
+                        </div>
+                    </div>
+                    <div class="people-small-profile">
+                        <img class="profile-image" src="images/person-icon.png">
+                        <div class="people-small-hover">
+                            <div class="hover-small-button">
+                                <div class="label-button-1">
+                                    <input type="checkbox" id="button7" class="button-off" onchange="pin_people(this)" />
+                                        <label for="button7" class="button-label">
+                                            <img class="hover-button-icon" src="images/unpin-white.png">
+                                        </label>
+                                    <p class="unpin-desc">pin yourself to the main screen</p>
+                                </div>
+                                <div class="label-button-2">
+                                    <input type="checkbox" id="button8" class="button-off"/>
+                                        <label for="button8" class="button-label">
+                                            <img class="hover-button-icon" src="images/grid-white.png">
+                                        </label>
+                                    <p class="tile-desc">Show in a tile</p>
+                                </div>
+                                <div class="label-button-3">
+                                    <input type="checkbox" id="button9" class="button-off"/>
+                                        <label for="button9" class="button-label">
+                                            <img class="hover-button-icon" src="images/minimize-white.png">
+                                        </label>
+                                    <p class="minimize-desc">Minimize</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-name">
+                        Iron Man
+                    </div>
+                </div>
+
+                <div id="small-people-3" class="people-small" onMouseOver="people_hover(this)" onMouseOut="people_normal(this)">
+                    <div class="mute-button-layout">
+                        <button class="cross-button" onclick="remove_people(this)">
+                            <img class="cross-image" src="images/cross-white.png">
+                        </button>
+                        <div class="mute-button">
+                            <img class="mute-image" src="images/mic-off-white.png">
+                        </div>
+                    </div>
+                    <div class="people-small-profile">
+                        <img class="profile-image" src="images/person-icon.png">
+                        <div class="people-small-hover">
+                            <div class="hover-small-button">
+                                <div class="label-button-1">
+                                    <input type="checkbox" id="button10" class="button-off" onchange="pin_people(this)" />
+                                        <label for="button10" class="button-label">
+                                            <img class="hover-button-icon" src="images/unpin-white.png">
+                                        </label>
+                                    <p class="unpin-desc">pin yourself to the main screen</p>
+                                </div>
+                                <div class="label-button-2">
+                                    <input type="checkbox" id="button11" class="button-off"/>
+                                        <label for="button11" class="button-label">
+                                            <img class="hover-button-icon" src="images/grid-white.png">
+                                        </label>
+                                    <p class="tile-desc">Show in a tile</p>
+                                </div>
+                                <div class="label-button-3">
+                                    <input type="checkbox" id="button12" class="button-off"/>
+                                        <label for="button12" class="button-label">
+                                            <img class="hover-button-icon" src="images/minimize-white.png">
+                                        </label>
+                                    <p class="minimize-desc">Minimize</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-name">
+                        Dr. Strange
+                    </div>
+                </div>
+                <div id="small-people-4" class="people-small" onMouseOver="people_hover(this)" onMouseOut="people_normal(this)">
+                    <div class="mute-button-layout">
+                        <button class="cross-button" onclick="remove_people(this)">
+                            <img class="cross-image" src="images/cross-white.png">
+                        </button>
+                        <div class="mute-button">
+                            <img class="mute-image" src="images/mic-off-white.png">
+                        </div>
+                    </div>
+                    <div class="people-small-profile">
+                        <img class="profile-image" src="images/person-icon.png">
+                        <div class="people-small-hover">
+                            <div class="hover-small-button">
+                                <div class="label-button-1">
+                                    <input type="checkbox" id="button13" class="button-off" onchange="pin_people(this)" />
+                                        <label for="button13" class="button-label">
+                                            <img class="hover-button-icon" src="images/unpin-white.png">
+                                        </label>
+                                    <p class="unpin-desc">pin yourself to the main screen</p>
+                                </div>
+                                <div class="label-button-2">
+                                    <input type="checkbox" id="button14" class="button-off"/>
+                                        <label for="button14" class="button-label">
+                                            <img class="hover-button-icon" src="images/grid-white.png">
+                                        </label>
+                                    <p class="tile-desc">Show in a tile</p>
+                                </div>
+                                <div class="label-button-3">
+                                    <input type="checkbox" id="button15" class="button-off"/>
+                                        <label for="button15" class="button-label">
+                                            <img class="hover-button-icon" src="images/minimize-white.png">
+                                        </label>
+                                    <p class="minimize-desc">Minimize</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-name">
+                        Spiderman
+                    </div>
+                </div>
+                <div id="small-people-5" class="people-small" onMouseOver="people_hover(this)" onMouseOut="people_normal(this)">
+                    <div class="mute-button-layout">
+                        <button class="cross-button" onclick="remove_people(this)">
+                            <img class="cross-image" src="images/cross-white.png">
+                        </button>
+                        <div class="mute-button">
+                            <img class="mute-image" src="images/mic-off-white.png">
+                        </div>
+                    </div>
+                    <div class="people-small-profile">
+                        <img class="profile-image" src="images/person-icon.png">
+                        <div class="people-small-hover">
+                            <div class="hover-small-button">
+                                <div class="label-button-1">
+                                    <input type="checkbox" id="button16" class="button-off" onchange="pin_people(this)" />
+                                        <label for="button16" class="button-label">
+                                            <img class="hover-button-icon" src="images/unpin-white.png">
+                                        </label>
+                                    <p class="unpin-desc">pin yourself to the main screen</p>
+                                </div>
+                                <div class="label-button-2">
+                                    <input type="checkbox" id="button17" class="button-off"/>
+                                        <label for="button17" class="button-label">
+                                            <img class="hover-button-icon" src="images/grid-white.png">
+                                        </label>
+                                    <p class="tile-desc">Show in a tile</p>
+                                </div>
+                                <div class="label-button-3">
+                                    <input type="checkbox" id="button18" class="button-off"/>
+                                        <label for="button18" class="button-label">
+                                            <img class="hover-button-icon" src="images/minimize-white.png">
+                                        </label>
+                                    <p class="minimize-desc">Minimize</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-name">
+                        Black Panther
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="taskbar">
+            <div class="left-section">
+                <p class="meeting-details">凌晨12:43 ｜ Web Programming</p>
+            </div>
+            <div class="middle-section">
+                <input type="checkbox" id="mic-off-button" class="middle-button-off"/>
+                    <label for="mic-off-button" class="middle-icon-label">
+                        <img class="middle-section-icon" src="images/mic-off-white.png">
+                    </label>
+
+                <input type="checkbox" id="cam-off-button" class="middle-button-off"/>
+                    <label for="cam-off-button" class="middle-icon-label">
+                        <img class="middle-section-icon" src="images/cam-off-white.png">
+                    </label>
+                <div class="icon-layout">
+                    <img class="middle-section-icon" src="images/hand-white.png">
+                </div>
+                <div class="icon-layout">
+                    <img class="middle-section-icon" src="images/share-white.png">
+                </div>
+                <div class="icon-layout">
+                    <img class="middle-section-icon" src="images/dots-white.png">
+                </div>
+                <div class="end-call-layout">
+                    <img class="middle-section-icon" src="images/phone-white.png">
+                </div>
+            </div>
+            <div class="right-section">
+                <img class="right-section-icon" src="images/info-white.png">
+                <img class="right-section-icon" src="images/people-white.png">
+                <img class="right-section-icon" src="images/message-white.png">
+                <img class="right-section-icon" src="images/shape-white.png">
+                <img class="right-section-icon" src="images/basket-white.png">
+
+            </div>
+        </div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
