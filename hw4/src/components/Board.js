@@ -19,8 +19,9 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
     const [board, setBoard] = useState([]);                     // An 2-dimentional array. It is used to store the board.
     const [nonMineCount, setNonMineCount] = useState(0);        // An integer variable to store the number of cells whose value are not '💣'.
     const [mineLocations, setMineLocations] = useState([]);     // An array to store all the coordinate of '💣'.
+    const [flagLocations, setFlagLocations] = useState([]);     // An array to store all the coordinate of 'flag'.
     const [gameOver, setGameOver] = useState(false);            // A boolean variable. If true, means you lose the game (Game over).
-    const [remainFlagNum, setRemainFlagNum] = useState(0);      // An integer variable to store the number of remain flags.
+    const [remainFlagNum, setRemainFlagNum] = useState(-1);      // An integer variable to store the number of remain flags.
     const [win, setWin] = useState(false);                      // A boolean variable. If true, means that you win the game.
 
     useEffect(() => {
@@ -31,8 +32,7 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
     // Creating a board
     const freshBoard = () => {
         const newBoard = createBoard(boardSize, mineNum);
-        // Basic TODO: Use `newBoard` created above to set the `Board`.
-        // Hint: Read the definition of those Hook useState functions and make good use of them.
+
         setBoard(board => {
             return [...newBoard.board]
         })
@@ -41,9 +41,13 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
             return [...newBoard.mineLocations]
         })
 
+        setFlagLocations(flagLocations => {
+            return []
+        })
+
         setRemainFlagNum(mineNum)
-        console.log(newBoard)
-        console.log(board)
+        setWin(false);
+        setGameOver(false);
     }
 
     const restartGame = () => {
@@ -60,90 +64,119 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
         let newBoard = JSON.parse(JSON.stringify(board));
         let newFlagNum = remainFlagNum;
 
-        // Basic TODO: Right Click to add a flag on board[x][y]
-        // Remember to check if board[x][y] is able to add a flag (remainFlagNum, board[x][y].revealed)
-        // Update board and remainFlagNum in the end
+        const pos = [x,y]
 
-        if (newFlagNum > 0) {
-            if (newBoard[x][y].revealed === false && newBoard[x][y].flagged === false){
-                setBoard(board => {
-                    const updateBoard = [...board]
-                    updateBoard[x][y].flagged = true
-                    return updateBoard
+        if (newBoard[x][y].revealed === false && newBoard[x][y].flagged === false && remainFlagNum > 0){
+            setBoard(board => {
+                const updateBoard = [...board]
+                updateBoard[x][y].flagged = true
+                return updateBoard
+            })
+
+            setFlagLocations(flagLocations => [...flagLocations, pos])
+            setRemainFlagNum(remainFlagNum - 1)
+        }
+        else if (newBoard[x][y].flagged === true) {
+            setBoard(board => {
+                const updateBoard = [...board]
+                updateBoard[x][y].flagged = false
+                return updateBoard
+            })
+            setRemainFlagNum(remainFlagNum + 1)
+            setFlagLocations((flagLocations) => {
+                const newFlag = flagLocations.filter((flag) => {
+                    return !(JSON.stringify(flag) == JSON.stringify(pos))
                 })
-                setRemainFlagNum(remainFlagNum - 1)
-            }
-            else if (newBoard[x][y].flagged === true) {
-                console.log("in")
-                setBoard(board => {
-                    const updateBoard = [...board]
-                    updateBoard[x][y].flagged = false
-                    return updateBoard
-                })
-                setRemainFlagNum(remainFlagNum + 1)
+                return newFlag
+            })
+        }
+    };
+
+    const findNeighbours = (board, x, y) => {
+        let neighbours = [[x,y]]
+        
+        while (neighbours.length > 0){
+            x = neighbours[0][0]
+            y = neighbours[0][1]
+            neighbours.shift()
+
+            if (board[x][y].revealed===false && board[x][y].value !== '💣') {
+                board[x][y].revealed = true
+
+                if (board[x][y].value !==0) continue;
+
+                if (x+1 < board.length && board[x+1][y].revealed === false) {
+                    neighbours.push([x+1, y])
+                }
+                if (y+1 < board.length && board[x][y+1].revealed === false) {
+                    neighbours.push([x, y+1])
+                }
+                if (x-1 >= 0 && board[x-1][y].revealed === false) {
+                    neighbours.push([x-1, y])
+                }
+                if (y-1 >=0 && board[x][y-1].revealed === false) {
+                    neighbours.push([x, y-1])
+                }
             }
         }
 
-    };
-
-    // const findZeros = (x, y) => {
-    //     if (x < 0 || x > boardSize || y < 0 || y > boardSize) return;
-    //     let newBoard = JSON.parse(JSON.stringify(board));
+        return board; 
+    }
       
-    //     if (newBoard[x][y].value === 0 && !newBoard[x][y].revealed)
-    //     {
-    //       newBoard[x][y].revealed = true;
-    //       // newNonMinesCount--;
-      
-    //       findZeros(x+1, y);
-    //       findZeros(x, y+1);
-    //       findZeros(x-1, y);
-    //       findZeros(x, y-1);
-    //     }
-    //     else {
-    //       return;
-    //     }
-    //   }
 
     const revealCell = (x, y) => {
         if (board[x][y].revealed || gameOver || board[x][y].flagged) return;
         let newBoard = JSON.parse(JSON.stringify(board));
 
-        // Basic TODO: Complete the conditions of revealCell (Refer to reveal.js)
-        // Hint: If `Hit the mine`, check ...?
-        //       Else if `Reveal the number cell`, check ...?
-        // Reminder: Also remember to handle the condition that after you reveal this cell then you win the game.
-        // console.log('left clicked')
-        if (newBoard[x][y] === '💣') {
+        const updateBoard = findNeighbours(newBoard, x, y)
+        console.log("updateBoard", updateBoard)
+        setBoard(board => {
+            const finalBoard = [...updateBoard]
+            return finalBoard
+        })
+
+        if (newBoard[x][y].value === '💣') {
+            console.log("gameOver")
             setGameOver(true)
         }
-        else {
-
-            setBoard(board => {
-                const updateBoard = [...board]
-                updateBoard[x][y].revealed = true
-                return updateBoard
-            })
-        }
-
-        // if (newBoard[x][y] === '💣') {
-        //     setGameOver(true)
-        // }
-        // else {
-
-        //     findZeros(x,y)
-        //     console.log(board)
-        // }
+        console.log(board)
+        console.log(gameOver)
     };
+
+    const checkWin = () => {
+        console.log("inCheckwin")
+        if (remainFlagNum === 0) {
+            const sortedFlag = flagLocations.sort((function(index) {
+                return function(a, b) {
+                    return (a[index] === b[index] ? 0: (a[index] < b[index] ? -1: 1))
+                }
+            }))
+
+            const sortedMine = mineLocations.sort((function(index) {
+                return function(a, b) {
+                    return (a[index] === b[index] ? 0: (a[index] < b[index] ? -1: 1))
+                }
+            }))
+
+            console.log(sortedFlag)
+            console.log(sortedMine)
+
+            if(JSON.stringify(sortedFlag) === JSON.stringify(sortedMine)) {
+                setWin(true)
+                setGameOver(true)
+                console.log(win)
+            }
+        }
+    };
+
+    if (remainFlagNum===0 && !win) {
+        checkWin()
+    }
 
     return (
         <div className='boardPage' >
             <div className='boardWrapper' >
-                {/* Advanced TODO: Implement Modal based on the state of `gameOver` */}
-                
-                {/* Basic TODO: Implement Board 
-                Useful Hint: The board is composed of BOARDSIZE*BOARDSIZE of Cell (2-dimention). So, nested 'map' is needed to implement the board.
-                Reminder: Remember to use the component <Cell> and <Dashboard>. See Cell.js and Dashboard.js for detailed information. */}
+                {gameOver? (<Modal restartGame={restartGame} backToHome={backToHome} win={win} />) : null }
                 <div className='boardContainer'>
                     <Dashboard remainFlagNum={remainFlagNum} gameOver={gameOver}/>
                     {board.map((board_rows, row_idx) => (
@@ -158,9 +191,6 @@ const Board = ({ boardSize, mineNum, backToHome }) => {
             </div>
         </div>
     );
-
-
-
 }
-
-export default Board
+    
+export default Board;

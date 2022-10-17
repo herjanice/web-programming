@@ -13,8 +13,6 @@ import { createPortal } from 'react-dom';
 const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, errorOnChange, mineNum, boardSize, error }) => {
   const [showPanel, setShowPanel] = useState(false);      // A boolean variable. If true, the controlPanel will show.
 
-  {/* Advanced TODO: Implementation of Difficult Adjustment
-                     Some functions may be added here! */}
   const showPanelOnChange = () => {
     showPanel? setShowPanel(false) : setShowPanel(true)
   }
@@ -45,13 +43,7 @@ const HomePage = ({ startGameOnClick, mineNumOnChange, boardSizeOnChange, errorO
   return (
     <div className='HomeWrapper'>
       <p className='title'>MineSweeper</p>
-      {/* Basic TODO:  Implement start button */}
       <button className='btn' onClick={startGameOnClick}>Start Game</button>
-
-      {/* Advanced TODO: Implementation of Difficult Adjustment
-                Useful Hint: <input type = 'range' min = '...' max = '...' defaultValue = '...'> 
-                Useful Hint: Error color: '#880000', default text color: '#0f0f4b', invisible color: 'transparent' 
-                Reminder: The defaultValue of 'mineNum' is 10, and the defaultValue of 'boardSize' is 8. */}
       <div className="controlContainer">
         <button className="btn" onClick={showPanelOnChange}>Difficulty Adjustment</button>
         {showPanel ? (
