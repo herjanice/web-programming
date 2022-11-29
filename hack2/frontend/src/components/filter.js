@@ -48,7 +48,7 @@ const Filter = ({ priceFilter, setPriceFilter, mealFilter, setMealFilter, typeFi
     }
 
     const modifyPriceFilter = (key) => {
-        priceFilter = modifyFilter(key.length, priceFilter)
+        priceFilter = modifyFilter(key, priceFilter)
         setPriceFilter(priceFilter)
         setDisplay(getTagString())
     }

@@ -40,9 +40,8 @@ exports.GetSearch = async (req, res) => {
         // const data = await Info.find({price: priceFilter, tag: { $all: {mealFilter, typeFilter}})
         // const data = await Info.find(
         //     {$and: [ 
-        //         {}
-        //         {price: { $in: priceFilter }},
-        //         {tag: { $in: mealFilter }}, 
+        //         {price: { $ne: null, $in: priceFilter }} 
+        //     // { tag: { $ne: null, $all: mealFilter } }, 
         //     // { tag: { $ne: null, $all: typeFilter}} 
         //     ]}
         // )
