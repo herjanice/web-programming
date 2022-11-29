@@ -27,6 +27,26 @@ exports.GetCommentsByRestaurantId = async (req, res) => {
     //    message: 'error'
     //    contents: []
     // }
+
+    try {
+        const data = await Comment.find({restaurantId: id})
+        // console.log(data)
+        res.status(200).send(
+            {
+                message: 'success',
+                contents: data
+            }
+        );
+    } catch (error) {
+        console.error(error.name + ' ' + error.message)
+        res.status(403).send(
+            {
+                message: 'error',
+                contents: []
+            }
+        )
+    }
+
 }
 
 exports.CreateComment = async (req, res) => {
@@ -34,4 +54,16 @@ exports.CreateComment = async (req, res) => {
     const body = req.body
     /****************************************/
     // TODO Part III-3-b: create a new comment to a restaurant
+    try {
+        const newComment = new Comment({
+            restaurantId: body.restaurantId, 
+            name: body.name, 
+            rating: body.rating,
+            content: body.content
+        });
+        return newComment.save();
+    }
+    catch (e) {
+        throw new Error("Adding Restaurant's Comment Failed!");
+    }
 }

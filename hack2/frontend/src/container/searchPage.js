@@ -28,19 +28,16 @@ const SearchPage = () => {
                     priceFilter: state.priceFilter,
                     mealFilter: state.mealFilter,
                     typeFilter: state.typeFilter,
-                    // sortBy: state.sortBy
+                    sortBy: state.sortBy
                 },
             }
         );
-
-        console.log(contents)
     
         if (!contents) console.log("No Restaurants Content!");
         else setRestaurant(contents);       
     }
 
     useEffect(() => {
-        console.log("Filter has changed!", state)
         getRestaurant()
     }, [state.priceFilter, state.mealFilter, state.typeFilter, state.sortBy])
 
@@ -48,7 +45,7 @@ const SearchPage = () => {
     const navigate = useNavigate();
     const ToRestaurant = (id) => {
         // TODO Part III-1: navigate the user to restaurant page with the corresponding id
-        navigate('/restaurant'+id)
+        navigate('/restaurant/'+id)
     }
     const getPrice = (price) => {
         let priceText = ""
@@ -63,7 +60,7 @@ const SearchPage = () => {
             {
                 restaurants.map((item) => (
                     // TODO Part I-2: search page front-end
-                    <div className='resBlock' id={item.id} key={item.id} onClick={ToRestaurant}>
+                    <div className='resBlock' id={item.id} key={item.id} onClick={e => ToRestaurant(e.target.closest('.resBlock').id)}>
                         <div className='resImgContainer'>
                             <img className='resImg' src={item.img} />
                         </div>

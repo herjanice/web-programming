@@ -7,6 +7,7 @@
 ****************************************************************************/
 
 import React from 'react'
+import { MdTagFaces } from 'react-icons/md';
 import Stars from '../components/stars';
 import '../css/restaurantPage.css'
 
@@ -16,6 +17,9 @@ const Information = ({ info, rating }) => {
         return (
             <>
                 {/* TODO Part III-2-a render tags */}
+                {tags.map((tag) => {
+                    return (<div className='tag' key={tag}> {tag} </div>)
+                })}
             </>
         )
     }
@@ -26,15 +30,73 @@ const Information = ({ info, rating }) => {
         return (
             <>
                 {/* TODO Part III-2-a render price tags; hint: convert price number to dollar signs first */}
+                <div className='tag'>{priceText}</div>
             </>
         )
     }
 
     const getBusiness = (time) => {
+
+        // let businessHour = [{"day": "Mon", "time": ""},
+        //                     {"day": "Tue", "time": ""},
+        //                     {"day": "Wed", "time": ""},
+        //                     {"day": "Thr", "time": ""},
+        //                     {"day": "Fri", "time": ""},
+        //                     {"day": "Sat", "time": ""},
+        //                     {"day": "Sun", "time": ""}
+        //                 ]
+
+        let businessHour = ["Mon", "Tue", "Wed", "Thr", "Fri", "Sat", "Sun"]
+
+        // businessHour = businessHour.forEach((hour) => {
+            // if(time.hasOwnProperty(hour.day)){
+            //     return hour.time = time[hour.day]
+            // }
+            // else {
+            //     return hour.time = "Closed"
+            // }
+        // })
+        // console.log(businessHour)
         
         return (
             <div className='businessTime'>
                 {/* TODO Part III-2-c: render business time for each day*/}
+                {
+                    businessHour.map((day) => {
+                        if(time['All']) {
+                            return (
+                                <div className='singleDay'>
+                                    <div className='day'>{day}</div>
+                                    <div className='time'>{time['All']}</div>
+                                </div>
+                            )
+                        }
+                        else if(!time[day]) {
+                            return (
+                                <div className='singleDay'>
+                                    <div className='day'>{day}</div>
+                                    <div className='time'>Closed</div>
+                                </div>
+                            )
+                        }
+                        else {
+                            return (
+                                <div className='singleDay'>
+                                    <div className='day'>{day}</div>
+                                    <div className='time'>{time[day]}</div>
+                                </div>
+                            )
+                        }
+                    })
+                }
+                {/* {Object.keys(time).forEach((item) => {
+                    return `
+                        <div className='singleDay'>
+                            <div className='time'>{item}</div>
+                            <div className='day'>{time[item]}</div>
+                        </div>
+                    `
+                })} */}
             </div>
         )
     }
@@ -45,7 +107,6 @@ const Information = ({ info, rating }) => {
             <div className='infoRow'>
                 <div className='rate'>
                     {rating === 0 ? <p>No Rating</p> : <Stars rating={rating} displayScore={true} />}
-
                 </div>
                 <div className='distance'>{info.distance / 1000} km</div>
             </div>
