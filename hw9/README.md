@@ -1,3 +1,3 @@
 # Web Programming HW#9
 
-App Website: https://heroku-scorecard-app.herokuapp.com/
+App Website: https://scorecard-app-production.up.railway.app/
