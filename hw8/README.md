@@ -1,4 +1,3 @@
-# Web Programming HW#8
+# HW 8 - ChatRoom but with GraphQL
 
-Basic Function: 
-1. 把 HW#7 的 ChatRoom App 改成用 GraphQL 來做 DB 的 queries
+Goal: Requires using GraphQL to implement database queries for the ChatRoom App from HW#7
