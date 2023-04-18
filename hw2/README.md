@@ -1,9 +1,13 @@
-# Web Programming HW#2
+# HW 2 - Fake Google Meet (Advanced)
+
+Goal: Replicating Google Meet page layout AND handling various events triggered by user interactions with Javascript
 
 Basic Function:
 
-1. 當點選(x)符號時，會將該與會者移除會議，其他與會者的小視窗依序上提/左移，重新排列好。
-2. 當滑鼠游標 進入(hover)某個與會者的小視窗時，中間的圓會浮現出三個額外的功能按鈕，並以一個半透明的橢圓 形包覆起來，當游標進入此橢圓時，則此橢圓形的透明度會降低(顏色變深)。然後，如果點選pin圖釘上（一定要在pin的圖上點選其他圖不會有這個功能），則此與會者將會取代目前的主視窗，而目前主視窗的與會者會 加到旁邊的側邊欄。
-3. 當游標點擊主視窗使用者頭像上的橢圓時 (一定要點選在pin圖釘上)，則關閉主視窗，且原先 主視窗上的與會者會加入其他的與會者，一起重新排在整個視窗上
-4. 如果目前沒有人被釘選 (anchored) 在主視窗上, 則點擊某一位與會者頭像上的橢圓，如上功能 (2), 則會出現主視窗，且此與會者會被釘選在主視窗上，而其他與會者則排列在側邊欄。
-5. 如果踢出所有的與會者，只剩下自己，則自己應佔滿整個視窗。
+1. When the (x) symbol is clicked, the participant will be removed from the meeting, and the small windows of the other participants will be moved up/left and rearranged.
+2. When the mouse cursor enters (hover) a small window of a participant, three additional functional buttons will appear in the middle circle, wrapped in a semi-transparent oval shape. When the cursor enters this oval, the transparency of the oval will decrease (the color becomes darker). Then, if you click the pin icon (you must click on the pin icon, it will not work if you click on other icons), the participant will replace the current main window, and the current main window participant will be added to the sidebar.
+3. When you click the oval on the user's avatar in the main window (you must click on the pin icon), the main window will be closed, and the participants on the main window will be added to the other participants and rearranged on the entire window.
+4. If no one is currently anchored to the main window, clicking the oval on a participant's avatar will have the same function as (2), and the main window will appear. This participant will be anchored to the main window, and the other participants will be arranged in the sidebar.
+5. If all participants are kicked out and only oneself remains, then oneself should occupy the entire window.
+
+
