@@ -1,4 +1,4 @@
-# Web Programming 6 - (React + Axios + Express + Mongoose) Score Card DB
+# HW 6 - (React + Axios + Express + Mongoose) Score Card DB
 
 Goal: Building a full-stack web application called "Score Card DB" using React, Axios, Express, and Mongoose frameworks.
 
