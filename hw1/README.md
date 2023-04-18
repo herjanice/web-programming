@@ -1,13 +1,15 @@
-# Web Programming HW#1
+# HW 1 - Fake Google Meet
+
+Goal:  Replicating the Google Meet page layout and styling using HTML and CSS.
 
 Basic Function:
-1. 在每一個會議參與者上，主畫面、中間的圓、右上與左下的資訊，皆應為不同的HTML elements
-2. 在每一個會議參與者上，當滑鼠游標進入(hover)主畫面時，中間的圓會浮現出三個額外的功能按鈕。
-3. 在每一個會議參與者上，當游標進入此橢圓時，則此橢圓形的透明度會降低(顏色變深)。
+1. Each participant should have a different HTML element for the main screen, the circle in the center, and the information in the top-right and bottom-left corners.
+2. When hovering over the main screen, three additional function buttons will appear in the center circle.
+3. When hovering over the ellipse, the opacity of the ellipse will decrease (the color will become darker).
 
 Advanced Function:
-1. 下方的資訊/功能由左至右依序顯示時間、會議名稱、一些功能按鈕、一些會議資訊按鈕等 都是不同的HTML elements。
-2. 當游標滑至主畫面中間的圓會的三個額外的功能按鈕時(hover)，會在功能按鈕上方顯示此功能之提示。
-3. 點擊靜音或相機按鈕時，可以切換靜音/無靜音/開相機/關相機（icon會變成紅的)。
-4. 「Responsive Webb Design (RWD)」，讓網頁在放大、縮小時排版不至於亂掉，而仍保有原來完整的功能。
-5. 在每一個會議參與者上，中間的圓會的三個額外的功能按鈕都可以被按下去（會顯示不同opacity）。
+1. The information/functionalities at the bottom should be displayed from left to right, showing the time, meeting name, some function buttons, and some meeting information buttons, all of which are different HTML elements.
+2. When hovering over the three additional function buttons in the center circle, a tooltip will appear above the button to display its functionality.
+3. Clicking on the mute or camera button should toggle the mute/unmute or turn on/off the camera (the icon will turn red).
+4. The web page should be responsive to different screen sizes, using responsive web design (RWD) to maintain the layout and full functionality.
+Each participant's center circle should have three additional function buttons that can be pressed (displaying different opacity).
