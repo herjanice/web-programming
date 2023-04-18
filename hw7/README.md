@@ -1,12 +1,14 @@
-# Web Programming HW#7
+# HW 7 - ChatRoom (Full Stack Application)
+
+Goal: Create a simple full-stack application called "Score Card DB" using React, Axios, Express, and Mongoose, which allows users to sign in, chat with friends, and store all conversations in a MongoDB database.
 
 Basic Function:
-1. Sign in 時輸入名字即可開始使用 ChatRoom app，並且跳轉至 ChatRoom 頁面，title 自動設為 sign in 時的名字 (如:Ric’s Chat Room) 如果使用者沒有輸入名字就按送出，應跳出錯誤訊息，禁止其 sign in。
-2. 前端重新整理 or 開新開啟視窗時會回到 Sign In 畫面，且 input box 中會自動顯示最後一次 sign in 時的名字 (by local storage)。
-3. 在後端使用 MongoDB 儲存所有人的對話紀錄。
-4. 每個人登入後看到的是空的 chat room, 使用者按下 '+' 會跳出一個 Modal 來輸入想要對話者 （"friend") 的名字。
-5. 在對話框 (chat box) 中，朋友的留言靠左對齊，而自己的留言靠右對齊，並且按照時間順序顯示，越 早的留言排在越上面。
-6. 不管是你 or 朋友的留言，新的留言都是在 chat box 的最下方，並且在超過視窗高度後，每次留言的 變化都會自動驅動留言往上捲，確保最後的留言不會被切掉。
-7. 當 chat room 有多個 chat boxes 的時候，使用者可以點擊上面的 tab label 以切換不同的 chat box. 而使用者點擊任何一個 chat box (i.e. 不一定要是 active) 的 ’x’ 時，會關閉該 chat box (但不會清掉在 DB 的對話紀錄)。關掉 chat box 請適當的更新 activeKey (i.e. 會換成關掉的 chat box 的右邊的那個 chat box, 而如果關掉的是最右邊的 chat box, 則換成關掉的 chat box 的左邊的 那個 chat box)
-8.  自己可以跟自己對話 (i.e. 開啟 chat box 時名字寫自己的名字)，但所有對話訊息會都在右邊。
-9. 當以上的動作發生時，會有 status 在對話框的上端適當地顯示出通知訊息。
+1. Users can sign in with their name to start using the ChatRoom app and will be redirected to the ChatRoom page, with the title set to the name they signed in with (e.g. "Ric's Chat Room"). If the user tries to sign in without inputting a name, an error message will appear and sign-in will be prohibited.
+2. When the front-end is refreshed or a new window is opened, the user will return to the Sign In page and the input box will automatically display the name from the last sign-in (using local storage).
+All conversations will be stored in MongoDB in the backend.
+3. When users log in, they will see an empty chat room. Users can click '+' to open a modal and enter the name of the person they want to chat with ("friend").
+4. In the chat box, the friend's messages will be aligned to the left, and the user's messages will be aligned to the right, with messages displayed in chronological order (earlier messages at the top).
+5. Whether it is the user's or the friend's message, new messages will appear at the bottom of the chat box, and when the chat box exceeds the height of the window, each new message will automatically scroll up to ensure that the final message is not cut off.
+6. When there are multiple chat boxes in the chat room, users can click on the tab label above to switch between different chat boxes. When users click the 'x' button on any chat box (not necessarily the active one), that chat box will close (but the conversation history will not be cleared from the DB). When a chat box is closed, the activeKey will be appropriately updated (i.e., it will switch to the chat box to the right of the closed one, and if the closed chat box is the rightmost one, it will switch to the chat box to the left of the closed one).
+7. Users can chat with themselves (i.e., open a chat box and enter their own name), but all conversation messages will be aligned to the right.
+Appropriate status notifications will be displayed at the top of the chat box when any of the above actions occur.
