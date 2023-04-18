@@ -1,10 +1,10 @@
-# Web Programming HW#3
+# HW 3 - Todo List App
 
-This project was made with React App.
+Goal: Implement "Todo list" application using React where users can toggle task completion, add new tasks, and perform other related actions.
 
 Basic Function:
 
-1. 一開始只有上方會出現，等待使用者的輸入。
-2. 使用字寫 TODO items 之後，按下 enter 後就會出現一個新的 Task
-3. 點擊checkbox時，checkbox 會變成綠色，且 text 會有 line-through。再點擊一次 checkbox，可還原該 TODO item 變回 “未完成” 狀態。
-4. 一但有輸入 TODO items, 下方的 footer 就會出現，顯示剩餘 “未完成“ TODO items 的數量。
+1. Initially, the app will only display a blank area for the user to input their tasks.
+2. Once the user enters a task and hits the enter key, a new task will appear on the list.
+3. When the user clicks the checkbox next to a task, the checkbox will turn green, and the task text will have a line-through. Clicking the checkbox again will undo the task completion and revert it back to the "not completed" state.
+4. As soon as the user adds a task, a footer will appear at the bottom of the app, showing the number of incomplete tasks remaining.
