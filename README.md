@@ -1,4 +1,4 @@
-# Web Programming Course Repository Year 2022-2023 First Sem
+# Web Programming Course Repository 2022 Fall
 
 - Class Website: https://wp.ee.ntu.edu.tw
 
